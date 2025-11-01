@@ -1,0 +1,10 @@
+services:
+  notify-gateway:
+    image: ghcr.io/riki-pedia/notify-host:latest
+    ports:
+      - "9100:9100"
+    environment: 
+    # 8080 is the default port of the client, change if necessary
+      - TARGET=http://<your-target-server>:8080/notify
+      - TOKEN=your_secret_token
+    restart: unless-stopped
