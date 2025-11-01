@@ -1,0 +1,25 @@
+{
+  "name": "notify-gateway",
+  "version": "1.0.0",
+  "description": "counterpart to notify",
+  "main": "gateway.js",
+  "type": "module",
+  "scripts": {
+    "test": "node notify.js "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riki-pedia/notify-host.git"
+  },
+  "author": "riki-pedia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/riki-pedia/notify-host/issues"
+  },
+  "homepage": "https://github.com/riki-pedia/notify-host#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "node-fetch": "^3.3.2"
+  }
+}
