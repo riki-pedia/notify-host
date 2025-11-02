@@ -6,25 +6,26 @@ This readme is kind of bad for right now, but if I decide to maintain this bette
 ### Usage
 1. Build the Docker image:
    ```bash
-   docker build -t notify-gateway .
+   # this assumes you cloned the the repo
+   docker build -t notify-host .
    ```
    OR pull from GHCR:
     ```bash
-   docker pull ghcr.io/riki-pedia/notify-gateway:latest
+   docker pull ghcr.io/riki-pedia/notify-host:latest
    ```
 2. Run the Docker container:
    ```bash
-   docker run -d -p 9000:9000 -e TARGET="http://<target-server>:<port>/notify" -e TOKEN="your_secret_token" --name notify-gateway notify-gateway
+   docker run -d -p 9100:9100 -e TARGET="http://<target-server>:<port>/notify" -e TOKEN="your_secret_token" --name notify-host notify-host
    ```
    OR use docker compose:
    ```yaml
    version: '3'
    services:
-     notify-gateway:
-       image: ghcr.io/riki-pedia/notify-gateway:latest
-       container_name: notify-gateway
+     notify-host:
+       image: ghcr.io/riki-pedia/notify-host:latest
+       container_name: notify-host
        ports:
-         - "9000:9000"
+         - "9100:9100"
        environment:
          - TARGET=http://<target-server>:<port>/notify
          - TOKEN=your_secret_token

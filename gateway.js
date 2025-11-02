@@ -27,3 +27,16 @@ app.post("/notify", async (req, res) => {
 
   res.json({ success: true });
 });
+// i cant remember which one i wired up to docker services, but its too late now
+app.post("/", async (req, res) => {
+  const { title, body } = req.body;
+  if (!title || !body) return res.status(400).json({ error: "Missing fields" });
+
+  await fetch(TARGET, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ token: TOKEN, title, message: body }),
+  });
+
+  res.json({ success: true });
+});
